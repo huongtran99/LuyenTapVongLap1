@@ -134,20 +134,31 @@
         }
     }
 
-    function lesson8() {
+   function lesson8() {
         let a = parseInt(prompt("Bạn muốn đoán trong khoảng Từ"));
         let b = parseInt(prompt("đến"));
 
-        let random = Math.floor(Math.random() * (b-1)) + a;
+        let random = Math.floor(Math.random() * (b - 1)) + a;
         console.log(random);
         let c;
+        let count = 0;
 
         do {
             c = parseInt(prompt("Đoán số đi"));
             if (c < random) {
                 alert("Bằng " + random + " Cơ, số bé hơn rồi bạn nhập lại đi");
+                count++;
+                if (count == 3) {
+                    alert("Thua :))");
+                    break;
+                }
             } else if (c > random) {
                 alert("Bằng " + random + " Cơ, số lớn hơn rồi bạn nhập lại đi");
+                count++;
+                if (count == 3) {
+                    alert("Thua :))");
+                    break;
+                }
             } else {
                 alert("Chúc Mừng");
             }
