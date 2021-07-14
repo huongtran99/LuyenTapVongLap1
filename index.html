@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện Tập Vòng lặp 1</title>
+</head>
+<body>
+<button onclick="lesson1()">Bài 1</button>
+<button onclick="lesson2()">Bài 2</button>
+<button onclick="lesson3()">Bài 3</button>
+<button onclick="lesson4()">Bài 4</button>
+<button onclick="lesson5()">Bài 5</button>
+<button onclick="lesson6()">Bài 6</button>
+<button onclick="lesson7()">Bài 7</button>
+<label>---Bài 8---</label>
+<button onclick="lesson8()">Chơi</button>
+
+
+<script>
+    /*Bài 1: Sử dụng vòng lặp để đếm từ 1 đến 100. Khi số là 99, hiển thị hộp thoại thông báo là đã hoàn thành.*/
+    function lesson1() {
+        for (let i = 1; i < 100; i++) {
+            if (i == 99) {
+                alert("Đã Hoàn Thành");
+            }
+        }
+    }
+
+    /*Bài 2: Sử dụng hàm prompt() để lấy thông tin nhiệt độ hiện tại được nhập bởi người truy cập.
+        Nếu nhiệt độ nhập vào trên 100, yêu cầu người dùng giảm nhiệt độ.
+        Nếu nhiệt độ dưới 20, yêu cầu người dùng tăng nhiệt độ.*/
+    function lesson2() {
+        let t;
+        do {
+            t = parseInt(prompt("Mời Bạn Nhập Nhiệt Độ"));
+            if (t > 100) {
+                alert("Giảm Nhiệt Độ Bạn Ê");
+            } else if (t < 20) {
+                alert("Tăng Nhiệt Độ Bạn Ê")
+            } else {
+                return alert("Mày Bị Điên À");
+
+            }
+        } while (t > 100 || t < 20);
+        alert("Nhiệt Độ Quá Oke");
+    }
+
+    /*Bài 3: Hiển thị ra 20 số trong dãy fibonacci đầu tiên.*/
+    function lesson3() {
+        let numbers = parseInt(prompt("Nhập Vào Số Lượng Cần Hiển Thị"));
+        let a = 0;
+        let b = 1;
+        let r;
+        for (let i = 1; i <= numbers; i++) {
+            r = a + b;
+            console.log(" Số Fibonacci Thứ " + i + " Là " + r);
+            a = b;
+            b = r;
+
+        }
+
+    }
+
+    /*Bài 4: Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.*/
+
+    function lesson4() {
+        let a = 0;
+        let b = 1;
+        let r;
+        for (let i = 1; i < 5; i++) {
+            r = a + b;
+            if (r % 5 == 0) {
+                console.log("Số Fibonacci đầu tiên chia hết cho 5 là : " + r);
+                break;
+            }
+            a = b;
+            b = r;
+
+        }
+
+    }
+
+
+    /*Bài 5: Tính tổng của 20 số đầu tiên trong dãy fibonacci.*/
+    function lesson5() {
+        let numbers = parseInt(prompt("Nhập Vào Số Lượng Cần Hiển Thị"));
+        let a = 0;
+        let b = 1;
+        let r;
+        let sum = 0;
+        for (let i = 1; i <= numbers; i++) {
+            r = a + b;
+            sum += r;
+            a = b;
+            b = r;
+
+        }
+        console.log("Tổng Của 20 Số Fibonacci Đầu Tiên Trong Dãy: " + sum);
+    }
+
+    /*Bài 6: Tính tổng của 30 số chia hết cho 7 đầu tiên trong các số tự nhiên.*/
+
+    function lesson6() {
+        let sum = 0;
+        let count = 0;
+        let numbers = parseInt(prompt("Nhập vào số lượng số chia hết cho 7"));
+        for (let i = 7; i < 1000; i++) {
+            if (i % 7 == 0) {
+                sum += i;
+                count++;
+            }
+            if (count == numbers) {
+                break;
+            }
+        }
+        alert("Tổng Của " + numbers + " Đầu Tiên Chia Hết Cho 7 Là: " + sum);
+    }
+
+    /*    Bài 7: Hãy viết một chương trình in ra các số từ 1 đến 100.
+          Nhưng nếu số chia hết cho 3 thì in ra "Fizz", 5 thì in ra "Buzz" thay vì in ra số đó.
+          Và nếu số đó chia hết cho cả 3 và 5 thì in ra chữ "FizzBuzz"*/
+
+    function lesson7() {
+        for (let i = 1; i < 30; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                console.log("FizzBuzz");
+            } else if (i % 3 == 0) {
+                console.log("Fizz");
+            } else if (i % 5 == 0) {
+                console.log("Buzz");
+            } else {
+                console.log(i + " không chia hết cho 3 cũng không chia hết cho 5");
+            }
+        }
+    }
+
+    function lesson8() {
+        let a = parseInt(prompt("Bạn muốn đoán trong khoảng Từ"));
+        let b = parseInt(prompt("đến"));
+
+        let random = Math.floor(Math.random() * (b-1)) + a;
+        console.log(random);
+        let c;
+
+        do {
+            c = parseInt(prompt("Đoán số đi"));
+            if (c < random) {
+                alert("Bằng " + random + " Cơ, số bé hơn rồi bạn nhập lại đi");
+            } else if (c > random) {
+                alert("Bằng " + random + " Cơ, số lớn hơn rồi bạn nhập lại đi");
+            } else {
+                alert("Chúc Mừng");
+            }
+        } while (c < random || c > random);
+
+    }
+</script>
+</body>
+</html>
